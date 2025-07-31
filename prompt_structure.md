@@ -1,38 +1,56 @@
-# 🧠 Prompt Structure: SEO Blog Generator
+# 🧠 Prompt Structure: AI Resume Reviewer
 
-This prompt chain is designed to create SEO-optimized blog posts from a simple keyword + audience input.
-
----
-
-## 🔗 Prompt Chain
-
-1. **User Input:**  
-   - Keyword: e.g., “Customer Onboarding”  
-   - Audience: e.g., “SaaS Founders”
-
-2. **Prompt Step 1 – Understand Context**  
-Act as an expert SEO content writer. The topic is: {keyword}. The audience is: {audience}.
-Generate a 5-point outline with an SEO-friendly title.
-
-3. **Prompt Step 2 – Generate Sections**  
-For each point in the outline:  
-Write a full blog section with a hook, examples, and SEO-rich phrases. Use a tone that fits the audience
-4. **Prompt Step 3 – Final Touch**  
-Rewrite the entire article with improved tone, grammar, structure. Add a call to action at the end.
+This prompt chain reviews and scores resumes using Claude-3 with role-specific logic.
 
 ---
 
-## 🔍 Optional Modifiers
+## 🔗 Prompt Flow
 
-- "Add statistics"  
-- "Include a personal story"  
-- "Use a humorous tone"
+1. **Ingest Job Description:**  
+   Input the job post the resume is being compared against.
+
+2. **Parse Resume:**  
+   Claude extracts and segments: Summary, Skills, Experience, Education.
+
+3. **Scoring Prompt:**  
+You are an expert recruiter. Score the following resume on:
+
+Relevance to job
+
+Structure & formatting
+
+Clarity of language
+
+Resume: [Insert here]
+Job Description: [Insert here]
+
+Output: Ratings (1-10) + Feedback for each category
+
+markdown
+Copy
+Edit
+
+4. **Feedback Prompt:**  
+Suggest 3 improvements that would raise the resume's score for this specific job.
+
+yaml
+Copy
+Edit
 
 ---
 
-## 🧾 Sample Input
+## 🔍 Role-Specific Rubrics
 
-Keyword: Remote Work Burnout
-Audience: Startup Founders
+- **Product Manager:** Look for cross-functional skills, KPIs, agile tools  
+- **Software Engineer:** Emphasize stack, GitHub links, project impact  
+- **Marketing Roles:** Prioritize content, conversion metrics, campaign results
 
-→ GPT generates title, 5 sections, and an engaging 600–900 word blog post.
+---
+
+## 🧾 Sample Output
+
+**Relevance:** 8  
+**Structure:** 9  
+**Clarity:** 7  
+**Feedback:**  
+"Good format, but lacks quantifiable impact. Emphasize outcomes (e.g., 'increased revenue by 15%')."
