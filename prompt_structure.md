@@ -24,18 +24,10 @@ Clarity of language
 Resume: [Insert here]
 Job Description: [Insert here]
 
-Output: Ratings (1-10) + Feedback for each category
-
-markdown
-Copy
-Edit
+Output: Ratings (1–10) + Feedback for each category
 
 4. **Feedback Prompt:**  
 Suggest 3 improvements that would raise the resume's score for this specific job.
-
-yaml
-Copy
-Edit
 
 ---
 
@@ -52,5 +44,6 @@ Edit
 **Relevance:** 8  
 **Structure:** 9  
 **Clarity:** 7  
+
 **Feedback:**  
 "Good format, but lacks quantifiable impact. Emphasize outcomes (e.g., 'increased revenue by 15%')."
